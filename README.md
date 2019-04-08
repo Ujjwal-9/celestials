@@ -1,6 +1,4 @@
 # Celestials
-Section B, Section C
-
 
 ## Section-B
 
@@ -26,3 +24,15 @@ It is easy to compare several classifiers in the precision-recall plot. Curves c
 
 
 **Rigorous hyperparameter tuning is not done in above task**
+
+## Section C
+
+Disparity map refers to the apparent pixel difference or motion between a pair of stereo images. To experience this, try closing one of your eyes and then rapidly close it while opening the other. Objects that are close to you will appear to jump a significant distance while objects further away will move very little.
+
+### Calculating SAD
+Let's say this window is n x n in size. You would also have some window in your left image WL and some window in your right image WR. The idea is to find the pair that has the smallest SAD.
+
+So, for each left window pixel pl at some location in the window (x,y) you would the absolute value of difference of the right window pixel pr also located at (x,y). you would also want some running value, which is the sum of these absolute differences.
+After you calculate the SAD for this pair of windows, WL and WR you will want to "slide" WR to a new location and calculate another SAD. You want to find the pair of WL and WR with the smallest SAD - which you can think of as being the most similar windows. In other words, the WL and WR with the smallest SAD are "matched". When you have the minimum SAD for the current WL you will "slide" WL and repeat.
+
+Disparity is calculated by the distance between the matched WL and WR. For visualization, you can scale this distance to be between 0-255 and output that to another image.
