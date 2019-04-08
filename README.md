@@ -1,6 +1,4 @@
 # Celestials
-Section B, Section C
-
 
 ## Section-B
 
