@@ -75,6 +75,7 @@ def stereoMatchSAD(left_img, right_img, directory):
     # print time.time()-start
     # Convert to PIL and save it
     Image.fromarray(depth).save('Data/trainingQ/' + directory + '/depth_SAD.png')
+    
 def stereoMatchSSD(left_img, right_img, directory):
     # Load in both images, assumed to be RGBA 8bit per channel images
     left_img = Image.open(left_img)
@@ -145,7 +146,7 @@ def stereoMatchSSD(left_img, right_img, directory):
     # Convert to PIL and save it
     Image.fromarray(depth).save('Data/trainingQ/' + directory + '/depth_SSD.png')
 
-def rms_blockmatching(imageleft, imageright, directory,size):
+def Rblockmatch(imageleft, imageright, directory,size):
 
   searchrange = 50
 
@@ -181,7 +182,7 @@ def rms_blockmatching(imageleft, imageright, directory,size):
 
 
 
-def abs_blockmatching(imageleft, imageright, directory, size):
+def Ablockmatch(imageleft, imageright, directory, size):
 
   searchrange = 50
 
@@ -221,7 +222,7 @@ def abs_diff(I1, I2):
 def rms_diff(I1, I2):
     return np.sqrt(np.sum((I1 - I2)**2))
 
-def rms_abs_blockmatching(imageleft, imageright, directory,size):
+def RAblockmatch(imageleft, imageright, directory,size):
 
   searchrange = 50
 
@@ -326,5 +327,5 @@ if __name__ == '__main__':
         path = 'Data/trainingQ/' + directory
         stereoSSD(imageleft, imageright, directory)
         stereoSAD(imageleft, imageright, directory)
-        rms_abs_blockmatching(imageleft, imageright, directory, 7)
+        RAblockmatch(imageleft, imageright, directory, 7)
         census_blockmatching(imageleft, imageright, directory, 7)
