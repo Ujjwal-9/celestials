@@ -50,7 +50,7 @@ def stereoMatchSAD(left_img, right_img, directory):
                     diff = abs(int(left[y, x, 0]) - int(right[y, x - offset, 0]))
                     sd[y, x] = diff
 
-    # Sum the squared differences over a support window at this offset
+    # Sum the absolute differences over a support window at this offset
         for y in y_range:
             for x in x_range:
                 sum_sd = 0
