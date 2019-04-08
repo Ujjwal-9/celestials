@@ -3,3 +3,5 @@ disparity.py has code for the assigned task.
 Data folder has data for task.
 
 Output contains some examples of our code.
+
+Time Complexity : census O(4n^2), for displacement and matching O(NlogN), overall = O(n) where n is closely related to window size
