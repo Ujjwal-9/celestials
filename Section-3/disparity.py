@@ -324,6 +324,7 @@ if __name__ == '__main__':
         imageleft = 'Data/trainingQ/' + directory + '/im0.png'
         imageright = 'Data/trainingQ/' + directory + '/im1.png'
         path = 'Data/trainingQ/' + directory
-        # stereoSSD(imageleft, imageright, directory)
+        stereoSSD(imageleft, imageright, directory)
+        stereoSAD(imageleft, imageright, directory)
+        rms_abs_blockmatching(imageleft, imageright, directory, 7)
         census_blockmatching(imageleft, imageright, directory, 7)
-        
